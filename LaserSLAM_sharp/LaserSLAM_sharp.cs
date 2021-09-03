@@ -18,7 +18,7 @@ namespace LaserSLAM_sharp
                 LaserScan raw_scan;
                 List<double[]> path = new List<double[]>();
                 bool miniUpdated = false;
-                bool first_scan = true;
+                int first_scan = 0;
                 double[] prev_pos = new double[3];
                 double[,] map_points = new double[2, 2];  
                 double[] resolution = new double[2] { 0.5, 0.05 };
@@ -40,7 +40,7 @@ namespace LaserSLAM_sharp
                     p2c_scan = pol2cart(raw_scan, scan_size, p2c_scan);
                     // Lidar scan/////////////////////////////////////
                     // initialize///////////
-                    if (first_scan == true)
+                    if (first_scan == 0)
                     {
                         map_points = new double[scan_size, 2];
                         map_points = transform(p2c_scan, pos, scan_size, map_points);
@@ -86,12 +86,12 @@ namespace LaserSLAM_sharp
                         BWmap2 = distanceBW(gridMap, BWmap2);
                     }
                     //Predict current pose using constant velocity motion model
-                    if (first_scan == true)
+                    if (first_scan <= 1)
                     {
-                        first_scan = false;
+                        first_scan++;
                         pos_guess = pos;
                     }
-                    else if (first_scan == false)
+                    else if (first_scan > 1)
                     {
                         double[] pg_dp = new double[3];
                         pg_dp = diffPos(prev_pos, pos, pg_dp);
