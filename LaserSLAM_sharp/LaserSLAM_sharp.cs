@@ -44,6 +44,7 @@ namespace LaserSLAM_sharp
                     {
                         map_points = new double[scan_size, 2];
                         map_points = transform(p2c_scan, pos, scan_size, map_points);
+                        miniUpdated = true;
                         path.Add(pos);
                     }
                     // initialize////////////
