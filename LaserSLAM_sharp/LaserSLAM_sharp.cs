@@ -134,9 +134,9 @@ namespace LaserSLAM_sharp
                         {
                             if (best_hits[i] > 1.1)
                             {
+                                newPoints[cnt, 0] = addScan_w[i, 0];
+                                newPoints[cnt, 1] = addScan_w[i, 1];
                                 cnt++;
-                                newPoints[i, 0] = addScan_w[i, 0];
-                                newPoints[i, 1] = addScan_w[i, 1];
                                 if (check_newPoints != true)
                                     check_newPoints = true;
                             }
