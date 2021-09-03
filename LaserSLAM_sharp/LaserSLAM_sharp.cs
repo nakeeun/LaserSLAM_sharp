@@ -50,7 +50,8 @@ namespace LaserSLAM_sharp
                     // local map & grid//////
                     if (miniUpdated == true)
                     {
-                        double[,] localMap = new double[scan_size, 2];
+                        int map_size = map_points.GetLength(0);
+                        double[,] localMap = new double[map_size, 2];
                         localMap = ExtractLocalMap(map_points, p2c_scan, pos, scan_size, localMap);
 
                         int[] sgrid = new int[2];
