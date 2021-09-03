@@ -402,7 +402,7 @@ namespace LaserSLAM_sharp
                         {
                             for (int n = 0; n < p_y; n++)
                             {
-                                double distance = Math.Pow(Math.Sqrt(Math.Abs(m - i)) + Math.Sqrt(Math.Abs(n - j)), 2);
+                                double distance = Math.Sqrt(Math.Pow(m - i,2) + Math.Pow(n - j,2));
                                 if (first == false)
                                 {
                                     BWmap[m, n] = distance;
