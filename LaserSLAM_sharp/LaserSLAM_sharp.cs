@@ -520,9 +520,6 @@ namespace YDLidar_scan
                         trans_scan[i, j] += scan[i, k] * R_[k, j];
                     }
                 }
-            }
-            for (int i = 0; i < scan_size; i++)
-            {
                 trans_scan[i, 0] += t_x;
                 trans_scan[i, 1] += t_y;
             }
