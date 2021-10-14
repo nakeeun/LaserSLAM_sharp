@@ -247,9 +247,9 @@ namespace YDLidar_scan
             double r = resolution[0];
             double t = resolution[1];
             r = deg2rad(r);
-            double[] theta = new double[3] { -r + pos[2], pos[2], r + pos[2] };
-            double[] tx = new double[3] { -t + pos[0], pos[0], t + pos[0] };
-            double[] ty = new double[3] { -t + pos[1], pos[1], t + pos[1] };
+            double[] theta = new double[3];
+            double[] tx = new double[3];
+            double[] ty = new double[3];
 
             for (int m = 0; m < scan_size; m++)
             {
@@ -259,6 +259,9 @@ namespace YDLidar_scan
             for (int iter = 0; iter < max_Iter; iter++)
             {
                 noChange = true;
+                tx[0] = bestPos[0] - t; tx[1] = bestPos[0]; tx[2] = bestPos[0] + t;
+                ty[0] = bestPos[1] - t; ty[1] = bestPos[1]; ty[2] = bestPos[1] + t;
+                theta[0] = bestPos[2] - r; theta[1] = bestPos[2]; theta[2] = bestPos[2] + r;
                 for (int t_i = 0; t_i < 3; t_i++)
                 {
                     double c_theta = Math.Cos(theta[t_i]);
@@ -345,9 +348,9 @@ namespace YDLidar_scan
             double r = resolution[0];
             double t = resolution[1];
             r = deg2rad(r);
-            double[] tx = new double[3] { -t + pos_guess[0], pos_guess[0], t + pos_guess[0] };
-            double[] ty = new double[3] { -t + pos_guess[1], pos_guess[1], t + pos_guess[1] };
-            double[] theta = new double[3] { -r + pos_guess[2], pos_guess[2], r + pos_guess[2] };
+            double[] tx = new double[3];
+            double[] ty = new double[3];
+            double[] theta = new double[3];
             for (int m = 0; m < scan_size; m++)
             {
                 pixel_scan[m, 0] = p2c_scan[m, 0] * ipixel;
@@ -356,7 +359,9 @@ namespace YDLidar_scan
             for (int iter = 0; iter < max_Iter; iter++)
             {
                 noChange = true;
-                
+                tx[0] = bestPos[0] - t; tx[1] = bestPos[0]; tx[2] = bestPos[0] + t;
+                ty[0] = bestPos[1] - t; ty[1] = bestPos[1]; ty[2] = bestPos[1] + t;
+                theta[0] = bestPos[2] - r; theta[1] = bestPos[2]; theta[2] = bestPos[2] + r;
                 for (int t_i = 0; t_i < 3; t_i++)
                 {
                     double c_theta = Math.Cos(theta[t_i]);
