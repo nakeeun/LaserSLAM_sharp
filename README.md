@@ -5,8 +5,6 @@ There's still room for improvement.
 
 YDLidarG2 is used.
 
-![image](https://user-images.githubusercontent.com/37968684/137840341-4709b734-6dfd-4ec2-ae80-095641ddd5bd.png)
-
 
 **Reference :**
 
