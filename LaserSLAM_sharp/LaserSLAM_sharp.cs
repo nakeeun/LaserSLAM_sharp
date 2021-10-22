@@ -12,7 +12,7 @@ namespace YDLidar_scan
     {
         public static double[] t_pos = new double[3];
 
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             
             Console.WriteLine("Hello SLAM!");
@@ -422,5 +422,4 @@ namespace YDLidar_scan
             }
             return bestPos;
         }
-
 }
