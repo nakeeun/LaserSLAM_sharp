@@ -5,6 +5,22 @@ using YDLidarSharp;
 
 class SLAM_utils
 {
+     public static double[,] create_BWmap(double[,] localMap, double[,] min_max_val, double pixel_size) 
+     {
+        int map_size = localMap.GetLength(0);
+        int[] sgrid = SLAM_utils.extract_sgrid(min_max_val, pixel_size);
+        int[] idx = SLAM_utils.cal_idx(localMap, min_max_val, sgrid, pixel_size, map_size);
+        bool[,] gridMap = new bool[sgrid[1], sgrid[0]];
+        for (int i = 0; i < map_size; i++)
+        {
+            double temp_y = idx[i] / sgrid[1];
+            int t_y = (int)Math.Truncate(temp_y);
+            gridMap[idx[i] % sgrid[1], t_y] = true;
+        }
+        double[,] BWmap = new double[sgrid[1], sgrid[0]];
+        BWmap = SLAM_utils.distanceBW(gridMap, BWmap);
+        return BWmap;
+    }
     public static double[,] distanceBW(bool[,] gridMap, double[,] BWmap)
     {
         int p_x = gridMap.GetLength(0);
@@ -151,7 +167,7 @@ class SLAM_utils
     public static double deg2rad(double degree)
     {
         double radian = 0.0;
-        radian = degree / Math.PI;
+        radian = degree * Math.PI / 180;
         return radian;
     }
     public static double rad2deg(double radian)
