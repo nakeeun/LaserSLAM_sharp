@@ -5,6 +5,23 @@ There's still room for improvement.
 
 YDLidarG2 is used.
 
+# Source code list
+
+1. Program.cs (main)
+2. SLAM_utils.cs (SLAM utility function class)
+ - create_BWmap : Convert local map to hamming distance map
+ - distanceBW : hamming distance 
+ - extract_sgrid : extract small grid from local map
+ - cal_idx : calculate index from small grid
+ - ExtractLocalMap : extract local map from map
+ - transform
+ - pol2cart : convert polar coordinates to cartesian coordinates
+ - Dgetr
+ - deg2rad
+ - rad2deg(not used)
+ - diffpos : difference between current position and previous position
+ - min_max_func : get min(x, y), max(x, y) from map
+
 
 **Reference :**
 
