@@ -9,7 +9,7 @@ YDLidarG2 is used.
 
 1. Program.cs (main)
 2. SLAM_utils.cs (SLAM utility function class)
- - create_BWmap : Convert local map to hamming distance map
+ * create_BWmap : Convert local map to hamming distance map
  - distanceBW : hamming distance 
  - extract_sgrid : extract small grid from local map
  - cal_idx : calculate index from small grid
