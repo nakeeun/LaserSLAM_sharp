@@ -173,8 +173,7 @@ class SLAM_utils
     public static double rad2deg(double radian)
     {
         double degree = 0.0;
-        //radian = degree / Math.PI;
-        degree = radian * Math.PI;
+        degree = radian * 180 / Math.PI;
         return radian;
     }
     public static double[] diffPos(double[] prev_pos, double[] pos, double[] dp)
