@@ -112,8 +112,9 @@ class SLAM_utils
         }
         return localMap;
     }
-    public static double[,] transform(double[,] scan, double[] pos, int scan_size, double[,] trans_scan)
+    public static double[,] transform(double[,] scan, double[] pos, int scan_size)
     {
+        double[,] trans_scan = new double[scan_size, 2];
         double t_x = pos[0];
         double t_y = pos[1];
         double t_theta = pos[2];
@@ -122,17 +123,17 @@ class SLAM_utils
         double[,] R_ = new double[2, 2];
         R_[0, 0] = c_theta; R_[0, 1] = -s_theta; R_[1, 0] = s_theta; R_[1, 1] = c_theta;
         R_ = Dgetr(R_);
-        for (int i = 0; i < scan_size; i++)
+        for(int i=0; i< scan_size; i++)
         {
-            for (int j = 0; j < 2; j++)
-            {
-                for (int k = 0; k < 2; k++)
-                {
-                    trans_scan[i, j] += scan[i, k] * R_[k, j];
-                }
-            }
-            trans_scan[i, 0] += t_x;
-            trans_scan[i, 1] += t_y;
+           for (int j = 0; j < 2; j++)
+           {
+               for (int k = 0; k < 2; k++)
+               {
+                   trans_scan[i, j] += scan[i, k] * R_[k, j];
+               }
+           }
+           trans_scan[i, 0] += t_x;
+           trans_scan[i, 1] += t_y;
         }
         return trans_scan;
     }
