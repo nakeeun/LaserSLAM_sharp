@@ -5,6 +5,9 @@ There's still room for improvement.
 
 YDLidarG2 is used.
 
+![image](https://user-images.githubusercontent.com/37968684/154209105-a3f5ccde-89c9-4598-8614-0792730c644a.png)
+
+
 # Source code list
 
 1. Program.cs (main)
