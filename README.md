@@ -5,7 +5,7 @@ There's still room for improvement.
 
 YDLidarG2 is used.
 
-![image](https://user-images.githubusercontent.com/37968684/154209105-a3f5ccde-89c9-4598-8614-0792730c644a.png)
+![image](https://user-images.githubusercontent.com/37968684/154209230-10ef51bb-6a88-4a1b-9bf1-6a28443d3f6d.png)
 
 
 # Source code list
