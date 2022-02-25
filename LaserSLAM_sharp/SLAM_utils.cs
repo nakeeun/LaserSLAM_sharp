@@ -202,7 +202,7 @@ class SLAM_utils
         double[] dp = new double[3];
         dp[0] = pos[0] - prev_pos[0];
         dp[1] = pos[1] - prev_pos[1];
-        dp[2] = Math.Atan2(Math.Sin(prev_pos[2] - pos[2]), Math.Cos(prev_pos[2] - pos[2]));
+        dp[2] = Math.Atan2(Math.Sin(pos[2] - prev_pos[2]), Math.Cos(pos[2] - prev_pos[2]));
 
         return dp;
     }
